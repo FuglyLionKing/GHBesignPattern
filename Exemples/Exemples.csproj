@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5A6CC929-5262-419A-8294-AE80887B667D}</ProjectGuid>
+    <ProjectGuid>{597ABE30-5971-4CF4-AD5A-7E36B0900414}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GHBesignPattern</RootNamespace>

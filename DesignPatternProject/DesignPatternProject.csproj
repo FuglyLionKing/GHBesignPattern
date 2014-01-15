@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5A6CC929-5262-419A-8294-AE80887B667D}</ProjectGuid>
+    <ProjectGuid>{BE831452-212F-4B33-A963-E84947E53AC1}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GHBesignPattern</RootNamespace>
@@ -41,12 +41,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\IDisplayer.cs" />
+    <Compile Include="Controller\Simulation\ISimulationRunner.cs" />
+    <Compile Include="Controller\Simulation\Simulation.cs" />
+    <Compile Include="Controller\Statistic\IStatisticsCollector.cs" />
+    <Compile Include="Controller\Simulation\SimpleSimulationRunner.cs" />
+    <Compile Include="Model\Boards\IAccess.cs" />
+    <Compile Include="Model\Boards\IZone.cs" />
+    <Compile Include="Model\Characters\Character.cs" />
+    <Compile Include="Model\Characters\eState.cs" />
+    <Compile Include="Model\Characters\IMovingBehavior.cs" />
+    <Compile Include="Model\Characters\IObserverSubject.cs" />
+    <Compile Include="Model\Characters\IObservor.cs" />
+    <Compile Include="Model\Characters\IState.cs" />
+    <Compile Include="Model\Characters\Objectif.cs" />
+    <Compile Include="Model\Items\IItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
