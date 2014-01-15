@@ -11,7 +11,6 @@ namespace GHBesignPattern.Model.Characters
         IMovingBehavior<TEnumType> MovingBehavior { get; set; }
         IZone<TEnumType> Position { get; set; }
         String Name { get; set; }
-        Enum StateE { set; }
         List<Objectif<TEnumType>> Objectives { get; set; }
         List<IItem> Items { get; set; }
     }
