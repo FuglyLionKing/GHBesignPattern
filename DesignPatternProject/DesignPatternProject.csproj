@@ -48,12 +48,10 @@
     <Compile Include="Controller\Simulation\SimpleSimulationRunner.cs" />
     <Compile Include="Model\Boards\IAccess.cs" />
     <Compile Include="Model\Boards\IZone.cs" />
-    <Compile Include="Model\Characters\Character.cs" />
-    <Compile Include="Model\Characters\eState.cs" />
+    <Compile Include="Model\Characters\ICharacter.cs" />
     <Compile Include="Model\Characters\IMovingBehavior.cs" />
-    <Compile Include="Model\Characters\IObserverSubject.cs" />
+    <Compile Include="Model\Characters\IObservee.cs" />
     <Compile Include="Model\Characters\IObservor.cs" />
-    <Compile Include="Model\Characters\IState.cs" />
     <Compile Include="Model\Characters\Objectif.cs" />
     <Compile Include="Model\Items\IItem.cs" />
     <Compile Include="Program.cs" />

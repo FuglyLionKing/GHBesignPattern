@@ -5,6 +5,6 @@
         bool Pickable { get; }
         bool Usable { get; }
         string Name { get; }
-        //TODO pick(LivingThing) method ?
+ 
     }
 }

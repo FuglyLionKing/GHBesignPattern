@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using GHBesignPattern.Model.Characters;
+using GHBesignPattern.Model.Items;
 
 namespace GHBesignPattern.Model.Boards
 {
-    interface IZone
+    internal interface IZone<T> where T : struct , IConvertible, IComparable, IFormattable
     {
-        List<IZone> InnerZones { get; }
-        List<IAccess> Accesses { get; }
-        List<IObject> Objects { get; }
-        //TODO add LivingThings list 
-
-
+        List<IZone<T>> InnerZones { get; }
+        List<IAccess<T>> Accesses { get; }
+        List<IItem> Objects { get; }
+        List<ICharacter<T>> Characters { get; }
     }
 }

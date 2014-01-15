@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GHBesignPattern.Controller.Simulation;
+using GHBesignPattern.Model.Characters;
 
 namespace GHBesignPattern.Controller.Statistic
 {
-    interface IStatisticsCollector
+    interface IStatisticsCollector<T> where T : struct , IConvertible, IComparable, IFormattable
     {
         ISimulation Simulation { set; }
 
-        //TODO pass it all living sthings
-        void CollectInformation();
+        void CollectInformation(List<ICharacter<T>> characters );
 
         void UdateStatistics();
     }

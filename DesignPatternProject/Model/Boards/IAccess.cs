@@ -3,20 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GHBesignPattern.Model.Characters;
 
 namespace GHBesignPattern.Model.Boards
 {
-    interface IAccess
+
+    internal delegate bool AccessRestriction<T>(ICharacter<T> charater)
+        where T : struct, IConvertible, IComparable, IFormattable;
+
+    interface IAccess<T> where T : struct , IConvertible, IComparable, IFormattable
     {
-        IZone One { get; }
-        IZone Two { get; }
+        IZone<T> One { get; }
+        IZone<T> Two { get; }
         /// <summary>
         /// Return the other zone
         /// </summary>
         /// <param name="from"></param>
         /// <returns></returns>
-        IZone GetTarget(IZone from);
-        //TODO delegate returning boolean telling if a living thing can pass or not
-
+        IZone<T> GetTarget(IZone<T> from);
+        AccessRestriction<T> AccessRestricted { get; set; }
     }
 }

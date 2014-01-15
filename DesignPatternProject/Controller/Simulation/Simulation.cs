@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GHBesignPattern.Model.Boards;
+using GHBesignPattern.Model.Characters;
 
 namespace GHBesignPattern.Controller.Simulation
 {
 
-    interface ISimulation
+    interface ISimulation <T> where T : struct , IConvertible, IComparable, IFormattable
     {
-        //TODO sgetset livingthings
-        //TODO getset objects
-        //TODO getset terrain
-        //TODO getset papabears
+
+        List<ICharacter<T>>  Characters { get; }
+       
+        //Object are already inside zones
+        IZone<T> Terrain { get; }
+        IObservee PapaBears { get; }
 
         void Run();
 
