@@ -2,5 +2,6 @@
 {
     interface IMovingBehavior
     {
+        void Move();
     }
 }

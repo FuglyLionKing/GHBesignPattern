@@ -52,6 +52,7 @@
     <Compile Include="Model\Characters\IMovingBehavior.cs" />
     <Compile Include="Model\Characters\IObservee.cs" />
     <Compile Include="Model\Characters\IObservor.cs" />
+    <Compile Include="Model\Characters\IState.cs" />
     <Compile Include="Model\Characters\Objectif.cs" />
     <Compile Include="Model\Items\IItem.cs" />
     <Compile Include="Program.cs" />

@@ -10,7 +10,7 @@ namespace GHBesignPattern.Controller.Statistic
 {
     interface IStatisticsCollector<T> where T : struct , IConvertible, IComparable, IFormattable
     {
-        ISimulation Simulation { set; }
+        ISimulation<T> Simulation { set; }
 
         void CollectInformation(List<ICharacter<T>> characters );
 
