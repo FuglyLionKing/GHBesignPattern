@@ -1,6 +1,6 @@
 ﻿namespace GHBesignPattern.Model.Characters
 {
-    internal interface IObservee
+    public interface IObservee
     {
         void Update();
         void Attach(IObservor obs);

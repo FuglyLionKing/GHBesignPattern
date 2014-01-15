@@ -1,6 +1,6 @@
 ﻿namespace GHBesignPattern.Model.Items
 {
-    interface IItem
+    public interface IItem
     {
         bool Pickable { get; }
         bool Usable { get; }

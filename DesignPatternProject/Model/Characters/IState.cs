@@ -1,6 +1,6 @@
 ﻿namespace GHBesignPattern.Model.Characters
 {
-    abstract class State
+    public abstract class State
     {
         public int Ordinal { get; set;}
         public string Value { get; set; } 

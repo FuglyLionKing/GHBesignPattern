@@ -1,6 +1,6 @@
 ﻿namespace GHBesignPattern.Model.Characters
 {
-    interface IObservor
+    public interface IObservor
     {
         IObservee Subject {get; set;}
         void Update();

@@ -8,7 +8,7 @@ using GHBesignPattern.Controller.Statistic;
 namespace GHBesignPattern.Controller.Simulation
 {
 
-    interface ISimulationRunner<T> where T : struct , IConvertible, IComparable, IFormattable
+    public interface ISimulationRunner<T> where T : struct , IConvertible, IComparable, IFormattable
     {
         IDisplayer Displayer { set; }
         ISimulation<T> Simulation { set; }

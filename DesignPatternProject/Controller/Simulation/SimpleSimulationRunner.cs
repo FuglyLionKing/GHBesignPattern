@@ -4,7 +4,7 @@ using GHBesignPattern.Controller.Statistic;
 namespace GHBesignPattern.Controller.Simulation
 {
 
-    class SimpleSimulationRunner<T> : ISimulationRunner<T> where T : struct , IConvertible, IComparable, IFormattable
+    public class SimpleSimulationRunner<T> : ISimulationRunner<T> where T : struct , IConvertible, IComparable, IFormattable
     {
         private IDisplayer _displayer;
         private ISimulation<T> _simulation;

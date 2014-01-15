@@ -5,7 +5,7 @@ using GHBesignPattern.Model.Items;
 
 namespace GHBesignPattern.Model.Boards
 {
-    internal interface IZone<T> where T : struct , IConvertible, IComparable, IFormattable
+    public interface IZone<T> where T : struct , IConvertible, IComparable, IFormattable
     {
         List<IZone<T>> InnerZones { get; }
         List<IAccess<T>> Accesses { get; }

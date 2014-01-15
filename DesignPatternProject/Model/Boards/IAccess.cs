@@ -8,10 +8,10 @@ using GHBesignPattern.Model.Characters;
 namespace GHBesignPattern.Model.Boards
 {
 
-    internal delegate bool AccessRestriction<T>(ICharacter<T> charater)
+    public delegate bool AccessRestriction<T>(ICharacter<T> charater)
         where T : struct, IConvertible, IComparable, IFormattable;
 
-    interface IAccess<T> where T : struct , IConvertible, IComparable, IFormattable
+    public interface IAccess<T> where T : struct , IConvertible, IComparable, IFormattable
     {
         IZone<T> One { get; }
         IZone<T> Two { get; }

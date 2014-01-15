@@ -8,7 +8,7 @@ using GHBesignPattern.Model.Characters;
 
 namespace GHBesignPattern.Controller.Statistic
 {
-    interface IStatisticsCollector<T> where T : struct , IConvertible, IComparable, IFormattable
+    public interface IStatisticsCollector<T> where T : struct , IConvertible, IComparable, IFormattable
     {
         ISimulation<T> Simulation { set; }
 

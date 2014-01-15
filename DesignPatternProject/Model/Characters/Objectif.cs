@@ -4,9 +4,9 @@ using System.Runtime.InteropServices.ComTypes;
 namespace GHBesignPattern.Model.Characters
 {
 
-    delegate bool ObjectiveTester<T>(ICharacter<T> character) where T : struct , IConvertible, IComparable, IFormattable;
+    public delegate bool ObjectiveTester<T>(ICharacter<T> character) where T : struct , IConvertible, IComparable, IFormattable;
 
-    class Objectif<T> where T : struct , IConvertible, IComparable, IFormattable
+    public class Objectif<T> where T : struct , IConvertible, IComparable, IFormattable
     {
         public bool Done;
         public ObjectiveTester<T> ObjectiveComplete ;

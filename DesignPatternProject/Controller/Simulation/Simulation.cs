@@ -9,7 +9,7 @@ using GHBesignPattern.Model.Characters;
 namespace GHBesignPattern.Controller.Simulation
 {
 
-    interface ISimulation <T> where T : struct , IConvertible, IComparable, IFormattable
+    public interface ISimulation <T> where T : struct , IConvertible, IComparable, IFormattable
     {
 
         List<ICharacter<T>>  Characters { get; }
