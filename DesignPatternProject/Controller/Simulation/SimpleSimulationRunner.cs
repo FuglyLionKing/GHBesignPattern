@@ -4,11 +4,11 @@ using GHBesignPattern.Controller.Statistic;
 namespace GHBesignPattern.Controller.Simulation
 {
 
-    public class SimpleSimulationRunner<T> : ISimulationRunner<T> where T : struct , IConvertible, IComparable, IFormattable
+    public class SimpleSimulationRunner : ISimulationRunner 
     {
         private IDisplayer _displayer;
-        private ISimulation<T> _simulation;
-        private IStatisticsCollector<T> _statCollector;
+        private ISimulation _simulation;
+        private IStatisticsCollector _statCollector;
         //milliseconds
         public int Rate = 1000;
 
@@ -18,12 +18,12 @@ namespace GHBesignPattern.Controller.Simulation
             set { _displayer = value; }
         }
 
-        public ISimulation<T> Simulation
+        public ISimulation Simulation
         {
             set { _simulation = value; }
         }
 
-        public IStatisticsCollector<T> StatCollector
+        public IStatisticsCollector StatCollector
         {
             set { _statCollector = value; }
         }
@@ -33,7 +33,7 @@ namespace GHBesignPattern.Controller.Simulation
             throw new NotImplementedException();
         }
 
-        void ISimulationRunner<T>.Start()
+        void ISimulationRunner.Start()
         {
             if (null == _simulation)
                 return;

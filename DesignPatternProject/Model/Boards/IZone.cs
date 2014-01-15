@@ -5,11 +5,11 @@ using GHBesignPattern.Model.Items;
 
 namespace GHBesignPattern.Model.Boards
 {
-    public interface IZone<T> where T : struct , IConvertible, IComparable, IFormattable
+    public interface IZone 
     {
-        List<IZone<T>> InnerZones { get; }
-        List<IAccess<T>> Accesses { get; }
+        List<IZone> InnerZones { get; }
+        List<IAccess> Accesses { get; }
         List<IItem> Objects { get; }
-//        List<ICharacter<T>> Characters { get; }
+//        List<ICharacter> Characters { get; }
     }
 }

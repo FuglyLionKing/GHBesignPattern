@@ -7,9 +7,9 @@ using GHBesignPattern.Controller.Simulation;
 
 namespace GHBesignPattern.Controller
 {
-    public interface IDisplayer<T> where T : struct , IConvertible, IComparable, IFormattable
+    public interface IDisplayer 
     {
-        ISimulation<T> Simulation { set; }
+        ISimulation Simulation { set; }
 
         void UpdateDisplay();
     }

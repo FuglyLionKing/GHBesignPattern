@@ -8,19 +8,18 @@ using GHBesignPattern.Model.Characters;
 namespace GHBesignPattern.Model.Boards
 {
 
-    public delegate bool AccessRestriction<T>(ICharacter<T> charater)
-        where T : struct, IConvertible, IComparable, IFormattable;
+    public delegate bool AccessRestriction(ICharacter charater);
 
-    public interface IAccess<T> where T : struct , IConvertible, IComparable, IFormattable
+    public interface IAccess 
     {
-        IZone<T> One { get; }
-        IZone<T> Two { get; }
+        IZone One { get; }
+        IZone Two { get; }
         /// <summary>
         /// Return the other zone
         /// </summary>
         /// <param name="from"></param>
         /// <returns></returns>
-        IZone<T> GetTarget(IZone<T> from);
-        AccessRestriction<T> AccessRestricted { get; set; }
+        IZone GetTarget(IZone from);
+        AccessRestriction AccessRestricted { get; set; }
     }
 }

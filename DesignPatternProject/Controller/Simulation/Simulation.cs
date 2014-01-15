@@ -9,13 +9,13 @@ using GHBesignPattern.Model.Characters;
 namespace GHBesignPattern.Controller.Simulation
 {
 
-    public interface ISimulation <T> where T : struct , IConvertible, IComparable, IFormattable
+    public interface ISimulation  
     {
 
-        List<ICharacter<T>>  Characters { get; }
+        List<ICharacter>  Characters { get; }
        
         //Object are already inside zones
-        IZone<T> Terrain { get; }
+        IZone Terrain { get; }
         IObservee PapaBears { get; }
 
         void Run();

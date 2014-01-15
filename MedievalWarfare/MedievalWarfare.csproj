@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>70c2cbef-c519-4c55-b980-b33643a16a44</ProjectGuid>
+    <ProjectGuid>{B253581F-473A-43F0-939B-AD9C9125D37F}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MedievalWarfare</RootNamespace>
@@ -41,11 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MedivalWarfare\Model\Character\Knight.cs" />
+    <Compile Include="MedivalWarfare\Model\Character\PedestrianBehavior.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DesignPatternProject\DesignPatternProject.csproj">
+      <Project>{be831452-212f-4b33-a963-e84947e53ac1}</Project>
+      <Name>DesignPatternProject</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -3,10 +3,10 @@ using GHBesignPattern.Model.Boards;
 
 namespace GHBesignPattern.Model.Characters
 {
-   public  interface IMovingBehavior<T> where T : struct, IConvertible, IComparable, IFormattable
+   public  interface IMovingBehavior 
     {
-        void Move(ICharacter<T> character, IZone<T> objectif);
-        bool IsReachable(ICharacter<T> character, IZone<T> objectif);
+        void Move(ICharacter character, IZone objectif);
+        bool IsReachable(ICharacter character, IZone objectif);
        
     }
 }

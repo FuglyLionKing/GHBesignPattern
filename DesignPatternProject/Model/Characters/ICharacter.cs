@@ -5,13 +5,17 @@ using GHBesignPattern.Model.Items;
 
 namespace GHBesignPattern.Model.Characters
 {
-    public interface ICharacter<TEnumType> : IObservor  where TEnumType : struct, IConvertible, IComparable, IFormattable
+    public interface ICharacter :  IObservor  
     {
         int Health { get; set; }
-        IMovingBehavior<TEnumType> MovingBehavior { get; set; }
-        IZone<TEnumType> Position { get; set; }
+        IMovingBehavior MovingBehavior { get; set; } 
+        IZone Position { get; set; }
         String Name { get; set; }
-        List<Objectif<TEnumType>> Objectives { get; set; }
+        List<Objectif> Objectives { get; set; }
         List<IItem> Items { get; set; }
+        Enum State { get; set; }
+
+
     }
+
 }

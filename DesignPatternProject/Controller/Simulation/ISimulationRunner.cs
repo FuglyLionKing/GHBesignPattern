@@ -8,11 +8,11 @@ using GHBesignPattern.Controller.Statistic;
 namespace GHBesignPattern.Controller.Simulation
 {
 
-    public interface ISimulationRunner<T> where T : struct , IConvertible, IComparable, IFormattable
+    public interface ISimulationRunner 
     {
         IDisplayer Displayer { set; }
-        ISimulation<T> Simulation { set; }
-        IStatisticsCollector<T> StatCollector { set; }
+        ISimulation Simulation { set; }
+        IStatisticsCollector StatCollector { set; }
 
         void Start();
     }

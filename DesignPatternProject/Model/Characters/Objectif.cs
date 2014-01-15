@@ -4,15 +4,15 @@ using System.Runtime.InteropServices.ComTypes;
 namespace GHBesignPattern.Model.Characters
 {
 
-    public delegate bool ObjectiveTester<T>(ICharacter<T> character) where T : struct , IConvertible, IComparable, IFormattable;
+    public delegate bool ObjectiveTester(ICharacter character); 
 
-    public class Objectif<T> where T : struct , IConvertible, IComparable, IFormattable
+    public class Objectif 
     {
         public bool Done;
-        public ObjectiveTester<T> ObjectiveComplete ;
+        public ObjectiveTester ObjectiveComplete ;
 //        List<Objectif> Objectives;
 
-        public Objectif(ObjectiveTester<T> objo)
+        public Objectif(ObjectiveTester objo)
         {
             Done = null == objo ? true : false;
             ObjectiveComplete = objo;
