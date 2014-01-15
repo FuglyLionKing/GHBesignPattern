@@ -2,7 +2,7 @@
 {
     interface IObservor
     {
-        IObserverSubject Subject {get; set;}
+        IObservee Subject {get; set;}
         void Update();
 
 

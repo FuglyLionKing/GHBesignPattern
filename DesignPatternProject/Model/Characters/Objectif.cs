@@ -1,15 +1,18 @@
-﻿namespace GHBesignPattern.Model.Characters
+﻿using System;
+using System.Runtime.InteropServices.ComTypes;
+
+namespace GHBesignPattern.Model.Characters
 {
 
-    delegate bool ObjectiveTester(ICharacter character);
+    delegate bool ObjectiveTester<T>(ICharacter<T> character) where T : struct , IConvertible, IComparable, IFormattable;
 
-    class Objectif
+    class Objectif<T> where T : struct , IConvertible, IComparable, IFormattable
     {
         public bool Done;
-        public ObjectiveTester ObjectiveComplete;
+        public ObjectiveTester<T> ObjectiveComplete ;
 //        List<Objectif> Objectives;
 
-        public Objectif(ObjectiveTester objo)
+        public Objectif(ObjectiveTester<T> objo)
         {
             Done = null == objo ? true : false;
             ObjectiveComplete = objo;
