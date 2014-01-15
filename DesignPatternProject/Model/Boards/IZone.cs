@@ -10,6 +10,6 @@ namespace GHBesignPattern.Model.Boards
         List<IZone<T>> InnerZones { get; }
         List<IAccess<T>> Accesses { get; }
         List<IItem> Objects { get; }
-        List<ICharacter<T>> Characters { get; }
+//        List<ICharacter<T>> Characters { get; }
     }
 }
