@@ -7,12 +7,12 @@ using GHBesignPattern.Controller.Statistic;
 
 namespace GHBesignPattern.Controller.Simulation
 {
- 
-    interface ISimulationRunner
+
+    interface ISimulationRunner<T> where T : struct , IConvertible, IComparable, IFormattable
     {
         IDisplayer Displayer { set; }
-        ISimulation Simulation { set; }
-        IStatisticsCollector StatCollector { set; }
+        ISimulation<T> Simulation { set; }
+        IStatisticsCollector<T> StatCollector { set; }
 
         void Start();
     }
