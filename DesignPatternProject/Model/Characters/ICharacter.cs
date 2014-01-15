@@ -5,10 +5,10 @@ using GHBesignPattern.Model.Items;
 
 namespace GHBesignPattern.Model.Characters
 {
-    internal interface ICharacter<TEnumType> : IObservor  where TEnumType : struct, IConvertible, IComparable, IFormattable
+    public interface ICharacter<TEnumType> : IObservor  where TEnumType : struct, IConvertible, IComparable, IFormattable
     {
         int Health { get; set; }
-        IMovingBehavior MovingBehavior { get; set; }
+        IMovingBehavior<TEnumType> MovingBehavior { get; set; }
         IZone<TEnumType> Position { get; set; }
         String Name { get; set; }
         Enum StateE { set; }
