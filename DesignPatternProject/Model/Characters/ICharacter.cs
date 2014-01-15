@@ -9,7 +9,7 @@ namespace GHBesignPattern.Model.Characters
     {
         int Health { get; set; }
         IMovingBehavior MovingBehavior { get; set; }
-        IZone Position { get; set; }
+        IZone<TEnumType> Position { get; set; }
         String Name { get; set; }
         Enum StateE { set; }
         List<Objectif<TEnumType>> Objectives { get; set; }
