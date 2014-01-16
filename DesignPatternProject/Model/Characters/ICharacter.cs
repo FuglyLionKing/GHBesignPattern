@@ -14,6 +14,7 @@ namespace GHBesignPattern.Model.Characters
         List<Objectif> Objectives { get; set; }
         List<IItem> Items { get; set; }
         Enum State { get; set; }
+        ISightCapabilities SightCapabilities { get; set; }
 
 
     }
