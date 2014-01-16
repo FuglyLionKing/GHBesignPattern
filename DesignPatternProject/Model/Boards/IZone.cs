@@ -9,7 +9,7 @@ namespace GHBesignPattern.Model.Boards
     {
         List<IZone> InnerZones { get; }
         List<IAccess> Accesses { get; }
-        List<IItem> Objects { get; }
-//        List<ICharacter> Characters { get; }
+        List<IItem> Items { get; }
+        List<ICharacter> Characters { get; }
     }
 }
