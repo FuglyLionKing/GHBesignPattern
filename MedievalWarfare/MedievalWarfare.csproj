@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="MedivalWarfare\Model\Character\Knight.cs" />
     <Compile Include="MedivalWarfare\Model\Character\PedestrianBehavior.cs" />
+    <Compile Include="MedivalWarfare\Model\Character\TwentyOutOfTenOnBothEyesEyeSight.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

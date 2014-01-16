@@ -52,12 +52,12 @@
     <Compile Include="Model\Characters\IMovingBehavior.cs" />
     <Compile Include="Model\Characters\IObservee.cs" />
     <Compile Include="Model\Characters\IObservor.cs" />
-    <Compile Include="Model\Characters\Objectif.cs" />
     <Compile Include="Model\Characters\ISightCapabilities.cs" />
+    <Compile Include="Model\Characters\Objectif.cs" />
     <Compile Include="Model\Items\IItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils\AStar.cs" />
+    <Compile Include="Utils\Djikstra.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
