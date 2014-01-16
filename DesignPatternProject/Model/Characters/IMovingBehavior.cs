@@ -7,6 +7,5 @@ namespace GHBesignPattern.Model.Characters
     {
         void Move(ICharacter character, IZone objectif);
         bool IsReachable(ICharacter character, IZone objectif);
-       
     }
 }

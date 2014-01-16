@@ -41,8 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MedivalWarfare\Model\Boards\MedievalBoard.cs" />
     <Compile Include="MedivalWarfare\Model\Character\Knight.cs" />
+    <Compile Include="MedivalWarfare\Model\Character\MedievalCharacter.cs" />
     <Compile Include="MedivalWarfare\Model\Character\PedestrianBehavior.cs" />
+    <Compile Include="MedivalWarfare\Model\Organisation\TywinLannister.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

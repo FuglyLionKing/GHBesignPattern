@@ -1,9 +1,10 @@
-﻿namespace GHBesignPattern.Model.Characters
+﻿using System.Collections.Generic;
+namespace GHBesignPattern.Model.Characters
 {
     public interface IObservee
     {
         void Update();
-        void Attach(IObservor obs);
-        void Detach(IObservor obs);
+        void Attach(IObserver obs);
+        void Detach(IObserver obs);
     }
 }
