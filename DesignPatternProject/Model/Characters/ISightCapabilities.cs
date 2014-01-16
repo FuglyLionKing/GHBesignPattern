@@ -8,7 +8,7 @@ using GHBesignPattern.Model.Items;
 
 namespace GHBesignPattern.Model.Characters
 {
-    interface ISightCapabilities
+    public interface ISightCapabilities
     {
         List<IZone> Find(ICharacter character, List<IItem> items, List<ICharacter> characters);
     }
