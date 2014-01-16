@@ -12,14 +12,9 @@ namespace GHBesignPattern.Model.Boards
 
     public interface IAccess 
     {
-        IZone One { get; }
-        IZone Two { get; }
-        /// <summary>
-        /// Return the other zone
-        /// </summary>
-        /// <param name="from"></param>
-        /// <returns></returns>
-        IZone GetTarget(IZone from);
+        IZone From { get; }
+        IZone Target { get; }
+
         AccessRestriction AccessRestricted { get; set; }
     }
 }
