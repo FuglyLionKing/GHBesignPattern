@@ -4,7 +4,5 @@
     {
         IObservee Subject {get; set;}
         void Update();
-
-
     }
 }
