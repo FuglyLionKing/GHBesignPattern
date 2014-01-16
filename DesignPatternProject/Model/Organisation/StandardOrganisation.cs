@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GHBesignPattern.Model.Organisation
 {
-    abstract class StandardOrganisation : IObservee
+    public abstract class StandardOrganisation : IObservee
     {
         protected List<IObserver> observerList = new List<IObserver>();
         
