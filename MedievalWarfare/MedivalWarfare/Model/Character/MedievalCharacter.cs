@@ -1,38 +1,47 @@
-﻿using GHBesignPattern.Model.Characters;
+﻿using GHBesignPattern.Model.Boards;
+using GHBesignPattern.Model.Characters;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using GHBesignPattern.Model.Organisation;
+using GHBesignPattern.Model.Items;
+using MedievalWarfare.MedivalWarfare.Model.Organisation;
 
 namespace MedievalWarfare.MedivalWarfare.Model.Character
 {
-    public class MedievalCharacter : ICharacter, IObserver
+    class MedievalCharacter : ICharacter, IMedievalObserver
     {
-
-        public int Health { get; set; }
-
-        public IMovingBehavior MovingBehavior { get; set; }
-
-        public GHBesignPattern.Model.Boards.IZone Position { get; set; }
-
-        public string Name { get; set; }
-
-        public List<Objectif> Objectives { get; set; }
-        public List<GHBesignPattern.Model.Items.IItem> Items { get; set; }
-
-        public Enum State { get; set; }
-
-        public ISightCapabilities SightCapabilities { get; set; }
+        IObservee IObserver.Subject
+        {
+            get { return Subject; }
+            set { Subject = (TywinLannister)value; }
+        }
 
         public TywinLannister Subject { get; set; }
 
-
         public void Update()
         {
-            this.State = Subject.State;
+            State = Subject.State;
+        }
+
+        public int Health { get; set; }
+        public IMovingBehavior MovingBehavior { get; set; }
+        public IZone Position { get; set; }
+        public string Name { get; set; }
+        public List<Objectif> Objectives { get; set; }
+        public List<IItem> Items { get; set; }
+        public Enum State { get; set; }
+        public ISightCapabilities SightCapabilities { get; set; }
+
+        protected MedievalCharacter(TywinLannister subject, int health, IMovingBehavior movingBehavior, IZone position, string name, List<Objectif> objectives, List<IItem> items, Enum state, ISightCapabilities sightCapabilities)
+        {
+            Subject = subject;
+            Health = health;
+            MovingBehavior = movingBehavior;
+            Position = position;
+            Name = name;
+            Objectives = objectives;
+            Items = items;
+            State = state;
+            SightCapabilities = sightCapabilities;
         }
     }
 }

@@ -1,0 +1,13 @@
+﻿<Window x:Class="MedievalInterface.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="600" Width="800">
+    <ScrollViewer>
+        <DockPanel Width="Auto" Height="Auto" Margin="0,10,0,0" >
+            <Border BorderBrush="Black" BorderThickness="1" DockPanel.Dock="Top" Height="500" Width="500">
+                <Grid Name="MainGrid" Height="500" Width="500" ShowGridLines="True" x:FieldModifier="private" />
+            </Border>
+            <Button Name="StepButton" DockPanel.Dock="Bottom" Height="25" Width="100" Click="StepButton_Click">Step</Button>
+        </DockPanel>
+    </ScrollViewer>
+</Window>

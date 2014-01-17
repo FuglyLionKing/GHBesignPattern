@@ -46,12 +46,8 @@
     <Compile Include="Controller\Simulation\Simulation.cs" />
     <Compile Include="Controller\Statistic\IStatisticsCollector.cs" />
     <Compile Include="Controller\Simulation\SimpleSimulationRunner.cs" />
-    <Compile Include="Model\Boards\BidirectionnalAccess.cs" />
-    <Compile Include="Model\Boards\SquareBoard.cs" />
     <Compile Include="Model\Boards\IAccess.cs" />
-    <Compile Include="Model\Boards\IBoard.cs" />
     <Compile Include="Model\Boards\IZone.cs" />
-    <Compile Include="Model\Boards\Zone.cs" />
     <Compile Include="Model\Characters\ICharacter.cs" />
     <Compile Include="Model\Characters\IMovingBehavior.cs" />
     <Compile Include="Model\Characters\IObservee.cs" />
