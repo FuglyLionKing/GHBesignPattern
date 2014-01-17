@@ -7,9 +7,9 @@ namespace GHBesignPattern.Model.Boards
 {
     public interface IZone 
     {
-        List<IZone> InnerZones { get; }
-        List<IAccess> Accesses { get; }
-        List<IItem> Items { get; }
-        List<ICharacter> Characters { get; }
+        List<IZone> InnerZones { get; set; }
+        List<IAccess> Accesses { get; set; }
+        List<IItem> Items { get; set; }
+        List<ICharacter> Characters { get; set; }
     }
 }

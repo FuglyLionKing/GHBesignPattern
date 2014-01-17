@@ -9,7 +9,7 @@ using GHBesignPattern.Model.Organisation;
 
 namespace MedievalWarfare.MedivalWarfare.Model.Character
 {
-    class MedievalCharacter : ICharacter, IObserver
+    public class MedievalCharacter : ICharacter, IObserver
     {
 
         public int Health { get; set; }
