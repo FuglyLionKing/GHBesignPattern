@@ -10,7 +10,7 @@ namespace MedievalInterface.Source
     {
         public Point Position;
         public String ImagePath;
-        public List<GameElement> gameElements;
+        public List<GameElement> gameElements = new List<GameElement>();
 
         public CellContent(Point position, String color)
         {
