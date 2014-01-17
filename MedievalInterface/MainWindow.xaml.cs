@@ -34,7 +34,7 @@ namespace MedievalInterface
         {
             var height = _zones.GetLength(0);
             var width = _zones.GetLength(1);
-            const int cellSize = 25;
+            const int cellSize = 35;
 
             for (var i = 0; i < height; i++)
             {

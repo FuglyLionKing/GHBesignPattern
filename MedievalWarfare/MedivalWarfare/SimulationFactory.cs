@@ -24,7 +24,7 @@ namespace MedievalWarfare.MedivalWarfare
             for (int i = 0; i < 5; ++i)
             {
                 apples.Add(new Apple());
-                Random rnd = new Random();
+                var rnd = new Random();
                 board.Zones[rnd.Next(0,15), rnd.Next(0,10)].Items.Add(apples[i]);
             }
             
@@ -35,10 +35,7 @@ namespace MedievalWarfare.MedivalWarfare
 
             var objos = ObjectivesFactory.GenerateObjectivesFrom(apples, 5);
 
-         
-            
-
-            for (int i = 0; i < 3; ++i)
+            for (var i = 0; i < 3; ++i)
             {
                 var ob = new List<Objectif>();
                 ob.Add(objos[i]);
