@@ -1,17 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using GHBesignPattern.Controller.Simulation;
+using GHBesignPattern.Model.Boards;
 using MedievalInterface.Source;
+using DesignPatternProject;
 
 namespace MedievalInterface
 {
@@ -20,8 +14,7 @@ namespace MedievalInterface
     /// </summary>
     public partial class MainWindow : Window
     {
-        private const int GridRows = 10;
-        private const int GridColumns = 10;
+        IZone[][] zones;
 
         public MainWindow()
         {
@@ -31,38 +24,40 @@ namespace MedievalInterface
 
         private void CreateGrid()
         {
-            var label = new Label()
-            {
-                Content = "toto"
-            };
-            for (var i = 0; i < GridRows; i++)
+            foreach (var t in zones)
             {
                 MainGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(50) });
-                for (var j = 0; j < GridColumns; j++)
+                for (var j = 0; j < t.Length; j++)
                 {
                     MainGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(50) });
 
                 }
             }
-            //this.FeedCell(new CellContent(new Point(6, 0), "#FF0000"));
-
-            //this.FeedCell(new CellContent(new GameElement(new Point(0, 7), "Toto", null), "#FF0FF0"));
         }
 
         private void FeedGrid()
         {
-            var gridElements = new List<Object>();
-            foreach (var gridElement in gridElements)
+            this.FlushAllGrid();
+            for (var i = 0; i < zones.Length; i++)
             {
-                if (gridElement.GetType() == typeof (Object))
+                for (var j = 0; j < zones[i].Length; j++)
                 {
-                    //this.FeedCell(new CellContent(new Point(6, 0), "#FF0000"));
-                }
-                else
-                {
-                    //this.FeedCell(new CellContent(new GameElement(new Point(0, 7), "Toto", null), "#FF0FF0"));
+                    var zone = zones[i][j];
+                    foreach (var character in zone.Characters)
+                    {
+                        this.FeedCell(new CellContent(new GameElement(new Point(i, j), character.Name, null), "#CCCCCC"));
+                    }
+                    foreach (var item in zone.Characters)
+                    {
+                        this.FeedCell(new CellContent(new GameElement(new Point(i, j), item.Name, null), "#101010"));
+                    }
                 }
             }
+        }
+
+        private void FlushAllGrid()
+        {
+            MainGrid.Children.RemoveRange(0, MainGrid.Children.Count);
         }
 
         private void FeedCell(CellContent cell)
@@ -72,19 +67,10 @@ namespace MedievalInterface
             Grid.SetRow(cell, (int)cell.Position.X);
         }
 
-        //private void FlushGridRow();
-        //MainGrid.Children.
-
-        private void FlushAllGrid()
-        {
-            MainGrid.Children.RemoveRange(0, MainGrid.Children.Count);
-        }
-
-        //private void active
-
         private void StepButton_Click(object sender, RoutedEventArgs e)
         {
-            //this.FlushGrid();
+            var runner = new SimpleSimulationRunner { UpdateDisplayer = FeedGrid };
+            runner.Start();
         }
     }
 }

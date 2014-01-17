@@ -7,10 +7,11 @@ using GHBesignPattern.Controller.Statistic;
 
 namespace GHBesignPattern.Controller.Simulation
 {
+    public delegate void UpdateDisplayer();
 
     public interface ISimulationRunner 
     {
-        IDisplayer Displayer { set; }
+        UpdateDisplayer UpdateDisplayer { set; }
         ISimulation Simulation { set; }
         IStatisticsCollector StatCollector { set; }
 

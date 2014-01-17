@@ -4,18 +4,18 @@ using GHBesignPattern.Controller.Statistic;
 namespace GHBesignPattern.Controller.Simulation
 {
 
-    public class SimpleSimulationRunner : ISimulationRunner 
+    public class SimpleSimulationRunner : ISimulationRunner
     {
-        private IDisplayer _displayer;
+        private UpdateDisplayer _updateDisplayer;
         private ISimulation _simulation;
         private IStatisticsCollector _statCollector;
         //milliseconds
         public int Rate = 1000;
 
 
-        public IDisplayer Displayer
+        public UpdateDisplayer UpdateDisplayer
         {
-            set { _displayer = value; }
+            set { _updateDisplayer = value; }
         }
 
         public ISimulation Simulation
@@ -59,8 +59,8 @@ namespace GHBesignPattern.Controller.Simulation
                     _statCollector.UdateStatistics();
                 }
 
-                if (null != _displayer)
-                    _displayer.UpdateDisplay();
+                if (null != _updateDisplayer)
+                    _updateDisplayer();
 
                 run = !IsFinished();
 

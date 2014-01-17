@@ -95,7 +95,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DesignPatternProject\DesignPatternProject.csproj">
+      <Project>{be831452-212f-4b33-a963-e84947e53ac1}</Project>
+      <Name>DesignPatternProject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MedievalWarfare\MedievalWarfare.csproj">
+      <Project>{b253581f-473a-43f0-939b-ad9c9125d37f}</Project>
+      <Name>MedievalWarfare</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
