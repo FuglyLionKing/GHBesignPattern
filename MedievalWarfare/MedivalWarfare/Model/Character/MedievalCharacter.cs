@@ -80,7 +80,7 @@ namespace MedievalWarfare.MedivalWarfare.Model.Character
                     }
                 }
 
-                var found = SightCapabilities.Find(this, itemToFind, characToFind);
+                var found = SightCapabilities.Find(this, itemToFind, characToFind, zoneToFind);
 
                 //TODO less arbitrary pickup
 
