@@ -16,6 +16,8 @@ namespace MedievalWarfare.MedivalWarfare.Model.Character
 
         public void Move(ICharacter character, IZone objectif)
         {
+
+            IZone goToZone = null;
             var res = DjikstraAlgorithm.Run(character, objectif);
 
             if (null != res)
@@ -29,17 +31,18 @@ namespace MedievalWarfare.MedivalWarfare.Model.Character
                 }
 
                 //TODO add moveTo method to Zones or something (aspect ?) so moving a character automaticaly removes it from start and add it to finish
-                character.Position.Characters.Remove(character);
-                character.Position = enumerator.Current;
-                character.Position.Characters.Add(character);
 
-                return;
+                goToZone = enumerator.Current;
+
             }
-
-            for (var i = 0; i < StepsAvailables ; ++i)
+            else
             {
-                character.Position = character.Position.Accesses[0].Target;
+                goToZone = character.Position.Accesses[0].Target;
             }
+
+            character.Position.Characters.Remove(character);
+            character.Position = goToZone;
+            character.Position.Characters.Add(character);
 
         }
 

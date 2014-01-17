@@ -10,6 +10,6 @@ namespace GHBesignPattern.Model.Characters
 {
     public interface ISightCapabilities
     {
-        List<IZone> Find(ICharacter character, List<IItem> items, List<ICharacter> characters);
+        List<IZone> Find(ICharacter character, List<IItem> items, List<ICharacter> characters, List<IZone> zones);
     }
 }

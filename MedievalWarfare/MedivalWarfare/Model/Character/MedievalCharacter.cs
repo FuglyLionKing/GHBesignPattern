@@ -30,6 +30,7 @@ namespace MedievalWarfare.MedivalWarfare.Model.Character
         public List<IItem> Items { get; set; }
         public Enum State { get; set; }
         public ISightCapabilities SightCapabilities { get; set; }
+ 
 
         protected MedievalCharacter(TywinLannister subject, int health, IMovingBehavior movingBehavior, IZone position, string name, List<Objectif> objectives, List<IItem> items, Enum state, ISightCapabilities sightCapabilities)
         {
@@ -42,6 +43,78 @@ namespace MedievalWarfare.MedivalWarfare.Model.Character
             Items = items;
             State = state;
             SightCapabilities = sightCapabilities;
+        }
+
+        public void Move()
+        {
+            if (null == Objectives || 0 >= Objectives.Count)
+            {
+                if (null != MovingBehavior)
+                {
+                    MovingBehavior.Move(this, null);
+
+                }
+                return;
+            }
+
+            if (SightCapabilities != null)
+            {
+                var itemToFind = new List<IItem>();
+                var characToFind = new List<ICharacter>();
+                var zoneToFind = new List<IZone>();
+                
+                
+                foreach(var objo in Objectives)
+                {
+                    if (objo.target is ICharacter)
+                    {
+                        characToFind.Add((ICharacter) objo.target);
+                    }
+                    else if (objo.target is IItem)
+                    {
+                        itemToFind.Add((IItem) objo.target);
+                    }
+                    else if (objo.target is IZone)
+                    {
+                        zoneToFind.Add((IZone) objo.target);
+                    }
+                }
+
+                var found = SightCapabilities.Find(this, itemToFind, characToFind, zoneToFind);
+
+                //TODO less arbitrary pickup
+
+                MovingBehavior.Move(this, (null != found && 0 < found.Count ? found[0] : null));
+            }
+
+        }
+
+        public void Examine()
+        {
+            foreach (var item in this.Position.Items)
+            {
+                Items.Add(item);
+            }
+            Position.Items.Clear();
+           
+        }
+
+        public void ResolveObjectives()
+        {
+            if (null != Objectives)
+            {
+                foreach (var objective in Objectives)
+                {
+                    objective.Done = objective.ObjectiveComplete(this);
+
+                    if (objective.Done)
+                    {
+                        Objectives.Remove(objective);
+                        if(null != objective.next)
+                            Objectives.Add(objective.next);
+                    }
+                }
+            }
         }
     }
 }

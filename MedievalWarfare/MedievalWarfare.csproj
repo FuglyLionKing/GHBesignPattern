@@ -45,8 +45,10 @@
     <Compile Include="MedivalWarfare\Model\Character\MedievalCharacter.cs" />
     <Compile Include="MedivalWarfare\Model\Character\PedestrianBehavior.cs" />
     <Compile Include="MedivalWarfare\Model\Character\TwentyOutOfTenOnBothEyesEyeSight.cs" />
+    <Compile Include="MedivalWarfare\Model\items\Apple.cs" />
     <Compile Include="MedivalWarfare\Model\Organisation\IMedievalObserver.cs" />
     <Compile Include="MedivalWarfare\Model\Organisation\TywinLannister.cs" />
+    <Compile Include="MedivalWarfare\objectif\ObjectivesFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

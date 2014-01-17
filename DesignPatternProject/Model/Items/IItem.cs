@@ -2,8 +2,8 @@
 {
     public interface IItem
     {
-        bool Pickable { get; }
-        bool Usable { get; }
+//        bool Pickable { get; }
+//        bool Usable { get; }
         string Name { get; }
  
     }

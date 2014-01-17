@@ -5,7 +5,7 @@ using GHBesignPattern.Model.Items;
 
 namespace GHBesignPattern.Model.Characters
 {
-    public interface ICharacter :  IObserver  
+    public interface ICharacter :  IObserver 
     {
         int Health { get; set; }
         IMovingBehavior MovingBehavior { get; set; } 
@@ -15,6 +15,10 @@ namespace GHBesignPattern.Model.Characters
         List<IItem> Items { get; set; }
         Enum State { get; set; }
         ISightCapabilities SightCapabilities { get; set; }
+
+        void Move();
+        void Examine();
+        void ResolveObjectives();
     }
 
 }

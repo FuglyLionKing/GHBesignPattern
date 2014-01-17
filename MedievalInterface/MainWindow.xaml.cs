@@ -14,7 +14,7 @@ namespace MedievalInterface
     /// </summary>
     public partial class MainWindow : Window
     {
-        IZone[][] zones;
+        IZone[,] zones;
 
         public MainWindow()
         {
@@ -24,13 +24,12 @@ namespace MedievalInterface
 
         private void CreateGrid()
         {
-            foreach (var t in zones)
+            for (var i = 0; i < zones.GetLength(0); i++)
             {
                 MainGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(50) });
-                for (var j = 0; j < t.Length; j++)
+                for (var j = 0; j < zones.GetLength(1); j++)
                 {
                     MainGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(50) });
-
                 }
             }
         }
@@ -38,11 +37,11 @@ namespace MedievalInterface
         private void FeedGrid()
         {
             this.FlushAllGrid();
-            for (var i = 0; i < zones.Length; i++)
+            for (var i = 0; i < zones.GetLength(0); i++)
             {
-                for (var j = 0; j < zones[i].Length; j++)
+                for (var j = 0; j < zones.GetLength(1); j++)
                 {
-                    var zone = zones[i][j];
+                    var zone = zones[i,j];
                     foreach (var character in zone.Characters)
                     {
                         this.FeedCell(new CellContent(new GameElement(new Point(i, j), character.Name, null), "#CCCCCC"));

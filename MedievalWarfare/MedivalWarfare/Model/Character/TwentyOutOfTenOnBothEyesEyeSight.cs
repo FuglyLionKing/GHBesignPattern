@@ -10,25 +10,25 @@ namespace MedievalWarfare.MedivalWarfare.Model.Character
     {
         private const int viewDistance = 15;
 
-        public List<IZone> Find(ICharacter character, List<IItem> items, List<ICharacter> characters)
+        public List<IZone> Find(ICharacter character, List<IItem> items, List<ICharacter> characters, List<IZone> zones)
         {
             var zonesOfInterest = new List<IZone>();
 
             var doneZones = new List<IZone>();
 
 
-            Find(character.Position, items, characters, viewDistance, ref zonesOfInterest, ref doneZones);
+            Find(character.Position, items, characters, zones, viewDistance, ref zonesOfInterest, ref doneZones);
 
             return zonesOfInterest;
         }
 
-        private void Find(IZone from, IEnumerable<IItem> items, IEnumerable<ICharacter> characters, int distance,
+        private void Find(IZone from, IEnumerable<IItem> items, IEnumerable<ICharacter> characters, IEnumerable<IZone> zones, int distance,
             ref List<IZone> zonesOfInterest, ref List<IZone> doneZones)
         {
             if (0 > distance || doneZones.Contains(from))
                 return;
 
-            if (ContainsOneOf(from.Items, items) || ContainsOneOf(from.Characters, characters))
+            if (ContainsOneOf(from.Items, items) || ContainsOneOf(from.Characters, characters) || zones.Contains(from))
             {
                 zonesOfInterest.Add(from);
             }
@@ -37,7 +37,7 @@ namespace MedievalWarfare.MedivalWarfare.Model.Character
 
             foreach (IAccess access in from.Accesses)
             {
-                Find(from, items, characters, distance - 1, ref zonesOfInterest, ref doneZones);
+                Find(from, items, characters, zones, distance - 1, ref zonesOfInterest, ref doneZones);
             }
         }
 
