@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using GHBesignPattern.Controller.Simulation;
 using GHBesignPattern.Model.Boards;
 using GHBesignPattern.Model.Characters;
 using GHBesignPattern.Model.Items;
@@ -11,9 +8,9 @@ using MedievalWarfare.MedivalWarfare.Model.Character;
 using MedievalWarfare.MedivalWarfare.Model.items;
 using MedievalWarfare.MedivalWarfare.objectif;
 
-namespace GHBesignPattern.Controller.Simulation
+namespace MedievalWarfare.MedivalWarfare
 {
-    class SimulationFactory
+    public class SimulationFactory
     {
 
         public static SimpleSimulation GenerateSimpleSimulation()
@@ -39,10 +36,10 @@ namespace GHBesignPattern.Controller.Simulation
             {
                 var ob = new List<Objectif>();
                 ob.Add(objos[i]);
-                knights.Add(new Knight(null,100,move,board.zones[0,i],"knight "+i,ob,new List<IItem>(), warStates.Peace,sight));
+                knights.Add(new Knight(null,100,move,board.Zones[0,i],"knight "+i,ob,new List<IItem>(), warStates.Peace,sight));
             }
 
-            var sim = new SimpleSimulation(knights,board.zones,null);
+            var sim = new SimpleSimulation(knights,board.Zones,null);
 
 
             return sim;

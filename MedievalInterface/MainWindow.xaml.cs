@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using GHBesignPattern.Controller.Simulation;
 using GHBesignPattern.Model.Boards;
 using MedievalInterface.Source;
-using DesignPatternProject;
+using MedievalWarfare.MedivalWarfare;
+
 
 namespace MedievalInterface
 {
@@ -14,20 +13,27 @@ namespace MedievalInterface
     /// </summary>
     public partial class MainWindow : Window
     {
-        IZone[,] zones;
+        IZone[,] _zones;
 
         public MainWindow()
         {
             InitializeComponent();
+            this.InitGrid();
             this.CreateGrid();
+        }
+
+        private void InitGrid()
+        {
+            var simulation = SimulationFactory.GenerateSimpleSimulation();
+            this._zones = simulation.Board;
         }
 
         private void CreateGrid()
         {
-            for (var i = 0; i < zones.GetLength(0); i++)
+            for (var i = 0; i < _zones.GetLength(0); i++)
             {
                 MainGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(50) });
-                for (var j = 0; j < zones.GetLength(1); j++)
+                for (var j = 0; j < _zones.GetLength(1); j++)
                 {
                     MainGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(50) });
                 }
@@ -37,18 +43,27 @@ namespace MedievalInterface
         private void FeedGrid()
         {
             this.FlushAllGrid();
-            for (var i = 0; i < zones.GetLength(0); i++)
+            for (var i = 0; i < _zones.GetLength(0); i++)
             {
-                for (var j = 0; j < zones.GetLength(1); j++)
+                for (var j = 0; j < _zones.GetLength(1); j++)
                 {
-                    var zone = zones[i,j];
+                    var zone = _zones[i,j];
+                    CellContent cellContent = null;
                     foreach (var character in zone.Characters)
                     {
-                        this.FeedCell(new CellContent(new GameElement(new Point(i, j), character.Name, null), "#CCCCCC"));
+                        cellContent = new CellContent(new GameElement(new Point(i, j), character.Name, null), "#CCCCCC");
+                        this.FeedCell(cellContent);
                     }
                     foreach (var item in zone.Characters)
                     {
-                        this.FeedCell(new CellContent(new GameElement(new Point(i, j), item.Name, null), "#101010"));
+                        if (cellContent == null)
+                        {
+                            this.FeedCell(new CellContent(new GameElement(new Point(i, j), item.Name, null), "#101010"));
+                        }
+                        else
+                        {
+                            cellContent.addElement(new GameElement(new Point(i, j), item.Name, null));
+                        }
                     }
                 }
             }

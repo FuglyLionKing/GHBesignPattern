@@ -20,10 +20,17 @@ namespace MedievalInterface.Source
 
         public CellContent(GameElement element, String color)
         {
+            this.gameElements.Add(element);
             this.Position = element.Position;
             this.Background = (Brush)(new BrushConverter().ConvertFrom(color));
             this.Children.Add(new Label() { Content = element.Label });
             this.ImagePath = element.ImagePath;
+        }
+
+        public void addElement(GameElement element)
+        {
+            this.gameElements.Add(element);
+            this.Children.Add(new Label() { Content = element.Label });
         }
     }
 }
