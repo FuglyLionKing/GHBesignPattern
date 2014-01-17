@@ -8,7 +8,7 @@ namespace GHBesignPattern.Model.Boards
 {
     public class SquareBoard : IBoard
     {
-        public Zone[,] zones;
+        public Zone[,] Zones;
         int length;
         int width;
 
@@ -17,7 +17,7 @@ namespace GHBesignPattern.Model.Boards
             this.length = length;
             this.width = width;
 
-            zones = new Zone[length, width];
+            this.Zones = new Zone[length, width];
         }
 
         public void Build()
@@ -26,10 +26,10 @@ namespace GHBesignPattern.Model.Boards
             {
                 for (int j = 0; j < width; j++)
                 {
-                    if(i != 0) zones[i,j].Accesses.Add(new BidirectionnalAccess(zones[i,j],zones[i-1,j]));
-                    if (i != (length - 1)) zones[i, j].Accesses.Add(new BidirectionnalAccess(zones[i, j], zones[i + 1, j]));
-                    if (j != 0) zones[i, j].Accesses.Add(new BidirectionnalAccess(zones[i, j], zones[i, j - 1]));
-                    if (j != (width - 1)) zones[i, j].Accesses.Add(new BidirectionnalAccess(zones[i, j], zones[i, j + 1]));
+                    if (i != 0) this.Zones[i, j].Accesses.Add(new BidirectionnalAccess(this.Zones[i, j], this.Zones[i - 1, j]));
+                    if (i != (length - 1)) this.Zones[i, j].Accesses.Add(new BidirectionnalAccess(this.Zones[i, j], this.Zones[i + 1, j]));
+                    if (j != 0) this.Zones[i, j].Accesses.Add(new BidirectionnalAccess(this.Zones[i, j], this.Zones[i, j - 1]));
+                    if (j != (width - 1)) this.Zones[i, j].Accesses.Add(new BidirectionnalAccess(this.Zones[i, j], this.Zones[i, j + 1]));
                 }
             }
         }
