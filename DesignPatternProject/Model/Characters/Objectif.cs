@@ -12,6 +12,10 @@ namespace GHBesignPattern.Model.Characters
         public ObjectiveTester ObjectiveComplete ;
 //        List<Objectif> Objectives;
 
+        public Object target;
+
+        public Objectif next;
+
         public Objectif(ObjectiveTester objo)
         {
             Done = null == objo ? true : false;
