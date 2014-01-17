@@ -12,5 +12,6 @@ namespace GHBesignPattern.Controller
         ISimulation Simulation { set; }
 
         void UpdateDisplay();
+
     }
 }

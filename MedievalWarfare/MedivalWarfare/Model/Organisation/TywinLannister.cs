@@ -8,9 +8,10 @@ using GHBesignPattern.Model.Organisation;
 
 namespace MedievalWarfare.MedivalWarfare.Model
 {
+    public enum warStates { War, Peace };
     public class TywinLannister : StandardOrganisation
     {
-        enum warStates {War,Peace};
+        
         public Enum State;
 
         public TywinLannister()

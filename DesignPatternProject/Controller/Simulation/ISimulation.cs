@@ -15,10 +15,8 @@ namespace GHBesignPattern.Controller.Simulation
         List<ICharacter>  Characters { get; }
        
         //Object are already inside zones
-        IZone Terrain { get; }
+        IZone[,] Board { get; }
         IObservee PapaBears { get; }
-
-        void Run();
 
         void Update();
 
