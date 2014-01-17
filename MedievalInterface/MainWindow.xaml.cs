@@ -32,14 +32,21 @@ namespace MedievalInterface
 
         private void CreateGrid()
         {
-            for (var i = 0; i < _zones.GetLength(0); i++)
+            var height = _zones.GetLength(0);
+            var width = _zones.GetLength(1);
+            const int cellSize = 25;
+
+            for (var i = 0; i < height; i++)
             {
-                MainGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(50) });
-                for (var j = 0; j < _zones.GetLength(1); j++)
-                {
-                    MainGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(50) });
-                }
+                MainGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(cellSize) });   
             }
+            for (var j = 0; j < width; j++)
+            {
+                MainGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(cellSize) });
+            }
+            var parent = (Border)MainGrid.Parent;
+            parent.Height = cellSize*height;
+            parent.Width = cellSize*width;
         }
 
         private void FeedGrid()
@@ -60,7 +67,7 @@ namespace MedievalInterface
                     {
                         if (cellContent == null)
                         {
-                            this.FeedCell(new CellContent(new GameElement(new Point(i, j), item.Name, null), "#101010"));
+                            this.FeedCell(new CellContent(new GameElement(new Point(i, j), item.Name, null), "#00FF00"));
                         }
                         else
                         {
@@ -69,9 +76,8 @@ namespace MedievalInterface
                     }
                 }
             }
-            //System.Delegate
-            MainGrid.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.ApplicationIdle, (NoArgDelegate)
-                delegate { });
+
+            MainGrid.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.ApplicationIdle, (NoArgDelegate) delegate { });
         }
 
         private delegate void NoArgDelegate();
