@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exemples", "Exemples\Exempl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedievalWarfare", "MedievalWarfare\MedievalWarfare.csproj", "{B253581F-473A-43F0-939B-AD9C9125D37F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedievalInterface", "MedievalInterface\MedievalInterface.csproj", "{1FBF71C5-21FB-42DE-887B-B3BFC9C18881}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{B253581F-473A-43F0-939B-AD9C9125D37F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B253581F-473A-43F0-939B-AD9C9125D37F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B253581F-473A-43F0-939B-AD9C9125D37F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FBF71C5-21FB-42DE-887B-B3BFC9C18881}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FBF71C5-21FB-42DE-887B-B3BFC9C18881}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FBF71C5-21FB-42DE-887B-B3BFC9C18881}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FBF71C5-21FB-42DE-887B-B3BFC9C18881}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
