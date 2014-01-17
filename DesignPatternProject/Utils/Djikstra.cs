@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using GHBesignPattern.Model.Boards;
@@ -73,15 +74,19 @@ public class DjikstraAlgorithm
         {
             if (!exploredNodes.ContainsKey(link.Target))
             {
+                if(link.Target.ToString().Equals("zone : 9, 9"))
+                    Console.WriteLine("target end node");
 
                 //TODO replace boolean by actual cost ?
-                float updatedCost = (null != link.AccessRestricted && link.AccessRestricted(character) ? nodeInfos.ComputedCost + 1 : long.MaxValue);
+                float updatedCost = (null == link.AccessRestricted || link.AccessRestricted(character) ? nodeInfos.ComputedCost + 1 : long.MaxValue);
                 NodeInformations targetNodeInfos = null;
+                //Si la target fait parti des nodes à explorer on récupère ses info
                 if (nodesToExplore.ContainsKey(link.Target))
                     targetNodeInfos = nodesToExplore[link.Target];
 
                 else
                 {
+                    //sinon on la créer avec
                     targetNodeInfos =
                         new NodeInformations
                         {
@@ -91,6 +96,7 @@ public class DjikstraAlgorithm
                         };
                     nodesToExplore.Add(targetNodeInfos.CurrentNode, targetNodeInfos);
                 }
+
 
                 if (updatedCost < targetNodeInfos.ComputedCost)
                 {

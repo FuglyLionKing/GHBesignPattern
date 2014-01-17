@@ -9,7 +9,7 @@ namespace MedievalWarfare.MedivalWarfare.Model.Character
 {
     public class TwentyOutOfTenOnBothEyesEyeSight : ISightCapabilities
     {
-        private const int viewDistance = 15;
+        private const int viewDistance = 99;
 
         public List<IZone> Find(ICharacter character, List<IItem> items, List<ICharacter> characters, List<IZone> zones)
         {
@@ -30,6 +30,9 @@ namespace MedievalWarfare.MedivalWarfare.Model.Character
         {
             if (0 > distance || doneZones.Contains(from))
                 return;
+                
+            if(from.Items.Count != 0)
+                Console.WriteLine(from.ToString());
 
             if (ContainsOneOf(from.Items, items) || ContainsOneOf(from.Characters, characters) || zones.Contains(from))
             {
@@ -40,7 +43,7 @@ namespace MedievalWarfare.MedivalWarfare.Model.Character
 
             foreach (IAccess access in from.Accesses)
             {
-                Find(from, items, characters, zones, distance - 1, ref zonesOfInterest, ref doneZones);
+                Find(access.Target, items, characters, zones, distance - 1, ref zonesOfInterest, ref doneZones);
             }
         }
 

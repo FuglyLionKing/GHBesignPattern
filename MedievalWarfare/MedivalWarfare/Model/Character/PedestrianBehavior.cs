@@ -29,7 +29,7 @@ namespace MedievalWarfare.MedivalWarfare.Model.Character
 
                 var enumerator = res.GetEnumerator();
 
-                for (var i = 0; i < StepsAvailables && i < res.Count(); ++i)
+                for (var i = 0; i < StepsAvailables+1 && i < res.Count(); ++i)
                 {
                     enumerator.MoveNext();
                 }
@@ -41,7 +41,8 @@ namespace MedievalWarfare.MedivalWarfare.Model.Character
             }
             else
             {
-                goToZone = character.Position.Accesses[0].Target;
+                Random rnd = new Random();
+                goToZone = character.Position.Accesses[rnd.Next(0, character.Position.Accesses.Count)].Target;
             }
 
 

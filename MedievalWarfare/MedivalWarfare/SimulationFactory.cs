@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using GHBesignPattern.Controller.Simulation;
 using GHBesignPattern.Model.Boards;
@@ -20,10 +21,11 @@ namespace MedievalWarfare.MedivalWarfare
             board.Build();
             var apples = new List<IItem>();
 
-            for (int i = 0; i < 10; ++i)
+            for (int i = 0; i < 5; ++i)
             {
                 apples.Add(new Apple());
-                board.Zones[i, 9].Items.Add(apples[i]);
+                Random rnd = new Random();
+                board.Zones[rnd.Next(0,15), rnd.Next(0,10)].Items.Add(apples[i]);
             }
             
             var knights = new List<ICharacter>();
@@ -36,18 +38,13 @@ namespace MedievalWarfare.MedivalWarfare
          
             
 
-            for (int i = 0; i < 5; ++i)
+            for (int i = 0; i < 3; ++i)
             {
                 var ob = new List<Objectif>();
                 ob.Add(objos[i]);
                 knights.Add(new Knight(null,100,move,board.Zones[0,i],"knight "+i,ob,new List<IItem>(), warStates.Peace,sight));
             }
-            for (int i = 0; i < 5; ++i)
-            {
-                var ob = new List<Objectif>();
-                ob.Add(objos[i]);
-                knights.Add(new Knight(null, 100, move, board.Zones[0, i], "knight " + i, ob, new List<IItem>(), warStates.Peace, sight));
-            }
+  
 
             var sim = new SimpleSimulation(knights,board.Zones,null);
 
