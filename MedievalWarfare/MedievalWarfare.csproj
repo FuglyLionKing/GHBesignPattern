@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MedivalWarfare\Model\Boards\MedievalBoard.cs" />
     <Compile Include="MedivalWarfare\Model\Character\Knight.cs" />
     <Compile Include="MedivalWarfare\Model\Character\MedievalCharacter.cs" />
     <Compile Include="MedivalWarfare\Model\Character\PedestrianBehavior.cs" />
@@ -58,6 +57,9 @@
       <Project>{be831452-212f-4b33-a963-e84947e53ac1}</Project>
       <Name>DesignPatternProject</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MedivalWarfare\Model\Boards\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
