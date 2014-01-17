@@ -18,7 +18,11 @@ namespace MedievalWarfare.MedivalWarfare.Model.Character
         {
 
             IZone goToZone = null;
-            var res = DjikstraAlgorithm.Run(character, objectif);
+            IEnumerable<IZone> res = null;
+            if (null != objectif)
+            {
+                res = DjikstraAlgorithm.Run(character, objectif);
+            }
 
             if (null != res)
             {
@@ -39,6 +43,9 @@ namespace MedievalWarfare.MedivalWarfare.Model.Character
             {
                 goToZone = character.Position.Accesses[0].Target;
             }
+
+
+            Console.WriteLine(character.Name+" moved from "+character.Position.ToString()+" to "+goToZone.ToString());
 
             character.Position.Characters.Remove(character);
             character.Position = goToZone;

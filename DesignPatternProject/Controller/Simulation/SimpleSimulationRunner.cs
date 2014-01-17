@@ -6,11 +6,11 @@ namespace GHBesignPattern.Controller.Simulation
 
     public class SimpleSimulationRunner : ISimulationRunner
     {
-        private UpdateDisplayer _updateDisplayer;
-        private ISimulation _simulation;
-        private IStatisticsCollector _statCollector;
+        public UpdateDisplayer _updateDisplayer;
+        public ISimulation _simulation;
+        public IStatisticsCollector _statCollector;
         //milliseconds
-        public int Rate = 1000;
+        public int Rate = 8000;
 
 
         public UpdateDisplayer UpdateDisplayer

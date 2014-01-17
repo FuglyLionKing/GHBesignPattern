@@ -103,17 +103,32 @@ namespace MedievalWarfare.MedivalWarfare.Model.Character
         {
             if (null != Objectives)
             {
-                foreach (var objective in Objectives)
+
+                for (var i =0; Objectives != null && i < Objectives.Count; ++i)
                 {
+                    var objective = Objectives[i];
                     objective.Done = objective.ObjectiveComplete(this);
 
                     if (objective.Done)
                     {
+                        --i;
                         Objectives.Remove(objective);
-                        if(null != objective.next)
+                        if (null != objective.next)
                             Objectives.Add(objective.next);
                     }
                 }
+
+//                foreach (var objective in Objectives)
+//                {
+//                    objective.Done = objective.ObjectiveComplete(this);
+//
+//                    if (objective.Done)
+//                    {
+//                        Objectives.Remove(objective);
+//                        if(null != objective.next)
+//                            Objectives.Add(objective.next);
+//                    }
+//                }
             }
         }
     }

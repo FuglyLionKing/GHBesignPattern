@@ -75,7 +75,7 @@ public class DjikstraAlgorithm
             {
 
                 //TODO replace boolean by actual cost ?
-                float updatedCost = (link.AccessRestricted(character) ? nodeInfos.ComputedCost + 1 : long.MaxValue);
+                float updatedCost = (null != link.AccessRestricted && link.AccessRestricted(character) ? nodeInfos.ComputedCost + 1 : long.MaxValue);
                 NodeInformations targetNodeInfos = null;
                 if (nodesToExplore.ContainsKey(link.Target))
                     targetNodeInfos = nodesToExplore[link.Target];

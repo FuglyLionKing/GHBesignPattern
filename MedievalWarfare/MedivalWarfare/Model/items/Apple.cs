@@ -20,5 +20,23 @@ namespace MedievalWarfare.MedivalWarfare.Model.items
         {
             get { return _name; }
         }
+
+        protected bool Equals(Apple other)
+        {
+            return string.Equals(_name, other._name);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((Apple) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return (_name != null ? _name.GetHashCode() : 0);
+        }
     }
 }

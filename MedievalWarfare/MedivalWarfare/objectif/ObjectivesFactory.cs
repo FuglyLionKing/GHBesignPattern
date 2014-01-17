@@ -21,6 +21,7 @@ namespace MedievalWarfare.MedivalWarfare.objectif
             {
                 IItem item = items[desiredNumber%items.Count];
                 var obj = new Objectif(PickUpObjectif(item)) {target = item};
+                ans.Add(obj);
             }
 
 

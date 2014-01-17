@@ -11,5 +11,6 @@ namespace GHBesignPattern.Model.Boards
         List<IAccess> Accesses { get; set; }
         List<IItem> Items { get; set; }
         List<ICharacter> Characters { get; set; }
+
     }
 }

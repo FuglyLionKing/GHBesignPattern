@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using GHBesignPattern.Model.Boards;
 using GHBesignPattern.Model.Characters;
@@ -18,6 +19,8 @@ namespace MedievalWarfare.MedivalWarfare.Model.Character
 
 
             Find(character.Position, items, characters, zones, viewDistance, ref zonesOfInterest, ref doneZones);
+            if(zonesOfInterest.Count > 0)
+            Console.WriteLine(character.ToString()+" wants to go to "+zonesOfInterest[0].ToString());
 
             return zonesOfInterest;
         }

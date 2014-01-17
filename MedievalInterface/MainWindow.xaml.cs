@@ -8,12 +8,14 @@ using MedievalWarfare.MedivalWarfare;
 
 namespace MedievalInterface
 {
+    
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
         IZone[,] _zones;
+        ISimulation simulation = SimulationFactory.GenerateSimpleSimulation();
 
         public MainWindow()
         {
@@ -24,7 +26,7 @@ namespace MedievalInterface
 
         private void InitGrid()
         {
-            var simulation = SimulationFactory.GenerateSimpleSimulation();
+            
             this._zones = simulation.Board;
         }
 
@@ -54,7 +56,7 @@ namespace MedievalInterface
                         cellContent = new CellContent(new GameElement(new Point(i, j), character.Name, null), "#CCCCCC");
                         this.FeedCell(cellContent);
                     }
-                    foreach (var item in zone.Characters)
+                    foreach (var item in zone.Items)
                     {
                         if (cellContent == null)
                         {
@@ -67,7 +69,12 @@ namespace MedievalInterface
                     }
                 }
             }
+            //System.Delegate
+            MainGrid.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.ApplicationIdle, (NoArgDelegate)
+                delegate { });
         }
+
+        private delegate void NoArgDelegate();
 
         private void FlushAllGrid()
         {
@@ -83,7 +90,7 @@ namespace MedievalInterface
 
         private void StepButton_Click(object sender, RoutedEventArgs e)
         {
-            var runner = new SimpleSimulationRunner { UpdateDisplayer = FeedGrid };
+            var runner = new SimpleSimulationRunner { UpdateDisplayer = FeedGrid, _simulation =  this.simulation };
             runner.Start();
         }
     }
