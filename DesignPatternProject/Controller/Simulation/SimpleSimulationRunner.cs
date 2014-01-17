@@ -28,12 +28,9 @@ namespace GHBesignPattern.Controller.Simulation
             set { _statCollector = value; }
         }
 
-        public void Start()
-        {
-            throw new NotImplementedException();
-        }
 
-        void ISimulationRunner.Start()
+
+        public void Start()
         {
             if (null == _simulation)
                 return;

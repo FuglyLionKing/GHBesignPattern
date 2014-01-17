@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace GHBesignPattern.Model.Boards
 {
-    class SquareBoard : IBoard
+    public class SquareBoard : IBoard
     {
-        Zone[,] zones;
+        public Zone[,] zones;
         int length;
         int width;
 
