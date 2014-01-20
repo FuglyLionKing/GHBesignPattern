@@ -10,15 +10,17 @@ namespace MedievalInterface.Source
 {
     class GameElement
     {
-        public Point Position;
-        public string Label;
+        public 
         public string ImagePath;
+        public bool IsSelected;
 
-        public GameElement(Point position, string label, string imagePath)
+
+        public GameElement(Point position, string label, string imagePath, bool isSelected)
         {
-            this.Position = position;
-            this.Label = label;
-            this.ImagePath = imagePath;
+            Position = position;
+            Label = label;
+            ImagePath = imagePath;
+            IsSelected = isSelected;
         }
     }
 }

@@ -1,0 +1,64 @@
+﻿<Window x:Class="MedievalInterface.GameControler"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="GameControler" Height="320" Width="360" ResizeMode="NoResize">
+    <Grid>
+        <DockPanel>
+            <TabControl>
+            <TabItem Header="Grid">
+                <Grid Background="#FFE5E5E5">
+                    <StackPanel>
+                        <GroupBox Header="Dimension of the grid">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label MinWidth="170">Vertical amount of block :</Label>
+                                    <TextBox PreviewTextInput="TextboxInput_OnPreviewInput" MinWidth="150" TextAlignment="Right" Text="200"></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                        <Label MinWidth="170">Horizontal amount of block :</Label>
+                                        <TextBox PreviewTextInput="TextboxInput_OnPreviewInput" MinWidth="150" TextAlignment="Right" Text="200"></TextBox>
+                                    </StackPanel>
+                            </StackPanel>
+                        
+                        </GroupBox>
+                        <GroupBox Header="Elements amount">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label MinWidth="170">Amount of Characters :</Label>
+                                     <TextBox PreviewTextInput="TextboxInput_OnPreviewInput" MinWidth="150" TextAlignment="Right" Text="200"></TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label MinWidth="170">Amount of Items :</Label>
+                                     <TextBox PreviewTextInput="TextboxInput_OnPreviewInput" MinWidth="150" TextAlignment="Right" Text="200"></TextBox>
+                                </StackPanel>
+                            </StackPanel>
+                        </GroupBox>
+                        <GroupBox Header="Display Settings">
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label MinWidth="170">Amount of Characters :</Label>
+                                        <TextBox MinWidth="150" TextAlignment="Right" Text="200"></TextBox>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label MinWidth="170">Amount of Items :</Label>
+                                        <TextBox MinWidth="150" TextAlignment="Right" Text="200"></TextBox>
+                                    </StackPanel>
+                                </StackPanel>
+                            </GroupBox>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button MinWidth="100" Click="ButtonStart_Click">Play</Button>
+                            <Button MinWidth="100" Click="ButtonPause_Click">Pause</Button>
+                            <Button MinWidth="100" Click="ButtonReset_Click">Reset</Button>
+                        </StackPanel>
+                   </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Logger">
+                <Grid Background="#FFE5E5E5">
+                    <RichTextBox IsReadOnly="True"></RichTextBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        </DockPanel>
+    </Grid>
+</Window>

@@ -1,40 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using GHBesignPattern.Controller.Simulation;
 using GHBesignPattern.Model.Boards;
 using GHBesignPattern.Model.Characters;
 
-namespace GHBesignPattern.Controller.Simulation
+namespace MedievalWarfare.MedivalWarfare
 {
     public  class SimpleSimulation : ISimulation
     {
-        private List<ICharacter> _characters;
-        private IZone[,] _board;
-        private IObservee _papaBears;
-
         public SimpleSimulation(List<ICharacter> characters, IZone[,] board, IObservee papaBears)
         {
-            _characters = characters;
-            _board = board;
-            _papaBears = papaBears;
+            Characters = characters;
+            Board = board;
+            PapaBears = papaBears;
         }
 
-        public List<ICharacter> Characters
-        {
-            get { return _characters; }
-        }
+        public List<ICharacter> Characters { get; private set; }
 
-        public IZone[,] Board
-        {
-            get { return _board; }
-        }
+        public IZone[,] Board { get; private set; }
 
-        public IObservee PapaBears
-        {
-            get { return _papaBears; }
-        }
+        public IObservee PapaBears { get; private set; }
 
         public void Update()
         {

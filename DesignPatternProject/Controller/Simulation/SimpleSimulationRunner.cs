@@ -28,8 +28,6 @@ namespace GHBesignPattern.Controller.Simulation
             set { _statCollector = value; }
         }
 
-
-
         public void Start()
         {
             if (null == _simulation)

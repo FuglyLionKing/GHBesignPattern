@@ -9,7 +9,7 @@ namespace MedievalWarfare.MedivalWarfare.Model.Character
 {
     public class TwentyOutOfTenOnBothEyesEyeSight : ISightCapabilities
     {
-        private const int viewDistance = 99;
+        private const int viewDistance = 40;
 
         public List<IZone> Find(ICharacter character, List<IItem> items, List<ICharacter> characters, List<IZone> zones)
         {
